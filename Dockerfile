@@ -1,12 +1,13 @@
-# Use an official JDK image
 FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Copy project files
 COPY . .
 
-# Build with Maven wrapper
+# Ensure Maven wrapper is executable
+RUN chmod +x mvnw
+
+# Build the project
 RUN ./mvnw clean package -DskipTests
 
 # Run the jar
