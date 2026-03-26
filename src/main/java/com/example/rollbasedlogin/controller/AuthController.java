@@ -105,4 +105,9 @@ public class AuthController {
         System.out.println("Login successful for: " + user.getEmail() + ", Token: " + token);
         return ResponseEntity.ok(response);
     }
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+    
 }
